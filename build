@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+mkdir -p dist
+echo "build src/debounce.ls -> dist/debounce.js ..."
+./node_modules/.bin/lsc -cbp src/debounce.ls > dist/debounce.js
+echo "minifying debounce.js ..."
+./node_modules/.bin/uglifyjs dist/debounce.js > dist/debounce.min.js
+echo "done."
+

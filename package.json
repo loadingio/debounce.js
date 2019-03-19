@@ -1,0 +1,21 @@
+{
+  "author": "Kirby Wu",
+  "name": "debounce.js",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "description": "Debouncing Function",
+  "version": "0.0.1",
+  "homepage": "https://github.com/loadingio/debounce.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loadingio/debounce.js"
+  },
+  "engines": {
+    "node": ">=0.12.6",
+    "npm": ">=1.2.2"
+  },
+  "devDependencies": {
+    "LiveScript": ">=1.2.0",
+    "uglify-js": "=3.2.0"
+  }
+}
