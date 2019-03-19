@@ -46,6 +46,13 @@ Debounce.js helps you to debounce your function.
     };
     ````
 
+ * clear previously scheduled function call:
+
+   ````
+   myFunc();
+   myFunc.clear();
+   ````
+
 
 ## LICENSE
 
