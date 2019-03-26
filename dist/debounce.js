@@ -9,7 +9,7 @@ var slice$ = [].slice;
       ? [f.func, f]
       : [
         f, {
-          delay: o.delay != null ? o.delay : o
+          delay: typeof o === 'object' ? o.delay || 750 : o
         }
       ], f = ref$[0], o = ref$[1];
     l = {};
@@ -33,7 +33,7 @@ var slice$ = [].slice;
             res(ret);
           }
           return l.res = null, l.rej = null, l.h = 0, l;
-        }, o.delay || 500);
+        }, o.delay || 750);
       });
     };
     ret.clear = function(){
