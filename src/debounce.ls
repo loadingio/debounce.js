@@ -10,6 +10,7 @@
         if ret and typeof(ret.then) == \function => ret.then(->res!) else res ret
         l <<< {res: null, rej: null, h: 0}
       ), (o.delay or 750)
+    ret.now = (...args) -> ret = f.apply @, args
     ret.clear = ->
       clearTimeout l.h
       if l.res => l.res null

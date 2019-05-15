@@ -36,6 +36,11 @@ var slice$ = [].slice;
         }, o.delay || 750);
       });
     };
+    ret.now = function(){
+      var args, ret;
+      args = slice$.call(arguments);
+      return ret = f.apply(this, args);
+    };
     ret.clear = function(){
       clearTimeout(l.h);
       if (l.res) {
