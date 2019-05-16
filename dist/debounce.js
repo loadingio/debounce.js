@@ -5,6 +5,13 @@ var slice$ = [].slice;
   debounce = function(f, o){
     var ref$, l, ret;
     o == null && (o = {});
+    if (typeof f === 'number') {
+      return new Promise(function(res, rej){
+        return setTimeout(function(){
+          return res();
+        }, f);
+      });
+    }
     ref$ = typeof f === 'object'
       ? [f.func, f]
       : [
@@ -27,7 +34,9 @@ var slice$ = [].slice;
           ret = f.apply(this$, args);
           if (ret && typeof ret.then === 'function') {
             ret.then(function(){
-              return res();
+              var args;
+              args = slice$.call(arguments);
+              return res.apply(null, args);
             });
           } else {
             res(ret);
@@ -37,9 +46,10 @@ var slice$ = [].slice;
       });
     };
     ret.now = function(){
-      var args, ret;
+      var args;
       args = slice$.call(arguments);
-      return ret = f.apply(this, args);
+      ret.clear();
+      return f.apply(this, args);
     };
     ret.clear = function(){
       clearTimeout(l.h);

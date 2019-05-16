@@ -32,10 +32,9 @@ Debounce.js helps you to debounce your function.
     ````
     var myFunc = debounce(function( ... ) { ... }); 
     myFunc(...).then(function(ret) {
-      if(ret) { ... } /* ret is null if myFunc is debounced. */
+      if(ret) { ... } /* ret is thre return value of the function inside debounce */
     });
     ````
-
 
  * used with object members:
 
@@ -52,6 +51,16 @@ Debounce.js helps you to debounce your function.
    myFunc();
    myFunc.clear();
    ````
+
+ * bypassing debounce and call immediately:
+   ```
+   myFunc.now();
+   ```
+
+ * simply delay for a few milliseconds (e.g., 300 ms):
+   ```
+   debounce(300).then(function() { ... });
+   ```
 
 
 ## LICENSE
