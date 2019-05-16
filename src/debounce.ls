@@ -1,6 +1,8 @@
 (->
-  debounce = (f,o={}) ->
-    if typeof(f) == \number => return new Promise (res, rej) -> setTimeout (-> res!), f
+  debounce = (f,o) ->
+    if typeof(f) == \number and !(o?) => return new Promise (res, rej) -> setTimeout (-> res!), f
+    if typeof(o) == \function => [f,o] = [o,f]
+    if !o => o = {}
     [f,o] = if typeof(f) == \object => [f.func, f] else [f, {delay: if typeof(o) == \object => o.delay or 750 else o}]
     l = {}
     ret = (...args) ->

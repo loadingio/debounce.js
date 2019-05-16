@@ -23,9 +23,20 @@ Debounce.js helps you to debounce your function.
  * custom delay: 
 
     ````
-    var myFunc = debounce(func: function(p1, p2, ...) { ... }, 123); /* default delay is 500 */
+    var myFunc = debounce(function(p1, p2, ...) { ... }, 123); /* default delay is 500 */
     myFunc(...);
     ````
+
+ * sometimes it's convenient to have delay come first:
+    ````
+    var myFunc = debounce(123, function(p1, p2, ...) { ... });
+    myFunc(...);
+    ````
+
+ * simply delay for a few milliseconds (e.g., 300 ms) is also userful when working with promise:
+   ```
+   debounce(300).then(function() { ... });
+   ```
 
  * use promise after function is executed:
 
@@ -55,11 +66,6 @@ Debounce.js helps you to debounce your function.
  * bypassing debounce and call immediately:
    ```
    myFunc( ... ).now();
-   ```
-
- * simply delay for a few milliseconds (e.g., 300 ms):
-   ```
-   debounce(300).then(function() { ... });
    ```
 
 ## Compatibility

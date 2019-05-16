@@ -4,13 +4,18 @@ var slice$ = [].slice;
   var debounce;
   debounce = function(f, o){
     var ref$, l, ret;
-    o == null && (o = {});
-    if (typeof f === 'number') {
+    if (typeof f === 'number' && !(o != null)) {
       return new Promise(function(res, rej){
         return setTimeout(function(){
           return res();
         }, f);
       });
+    }
+    if (typeof o === 'function') {
+      ref$ = [o, f], f = ref$[0], o = ref$[1];
+    }
+    if (!o) {
+      o = {};
     }
     ref$ = typeof f === 'object'
       ? [f.func, f]
