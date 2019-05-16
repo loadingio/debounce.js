@@ -62,6 +62,10 @@ Debounce.js helps you to debounce your function.
    debounce(300).then(function() { ... });
    ```
 
+## Compatibility
+
+ * debounce.js uses Promise, which is not supported in some browsers like IE. Remember to install polyfill before using debounce.js.
+
 
 ## LICENSE
 
