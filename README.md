@@ -54,7 +54,7 @@ Debounce.js helps you to debounce your function.
 
  * bypassing debounce and call immediately:
    ```
-   myFunc.now();
+   myFunc( ... ).now();
    ```
 
  * simply delay for a few milliseconds (e.g., 300 ms):

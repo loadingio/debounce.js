@@ -21,9 +21,13 @@ var slice$ = [].slice;
       ], f = ref$[0], o = ref$[1];
     l = {};
     ret = function(){
-      var args, this$ = this;
+      var args, used, p, this$ = this;
       args = slice$.call(arguments);
-      return new Promise(function(res, rej){
+      used = false;
+      p = new Promise(function(res, rej){
+        if (used) {
+          return;
+        }
         if (l.h) {
           ret.clear();
         }
@@ -44,12 +48,12 @@ var slice$ = [].slice;
           return l.res = null, l.rej = null, l.h = 0, l;
         }, o.delay || 750);
       });
-    };
-    ret.now = function(){
-      var args;
-      args = slice$.call(arguments);
-      ret.clear();
-      return f.apply(this, args);
+      p.now = function(){
+        used = true;
+        ret.clear();
+        return f.apply(this$, args);
+      };
+      return p;
     };
     ret.clear = function(){
       clearTimeout(l.h);
