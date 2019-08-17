@@ -17,6 +17,7 @@
           l <<< {res: null, rej: null, h: 0}
         ), (o.delay or 750)
       p.now = ~> used := true; ret.clear!; return f.apply @, args
+      p.cancel = ~> ret.clear!
       p
     ret.clear = ->
       clearTimeout l.h

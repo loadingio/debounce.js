@@ -58,6 +58,9 @@ var slice$ = [].slice;
         ret.clear();
         return f.apply(this$, args);
       };
+      p.cancel = function(){
+        return ret.clear();
+      };
       return p;
     };
     ret.clear = function(){

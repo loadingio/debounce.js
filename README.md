@@ -68,6 +68,22 @@ Debounce.js helps you to debounce your function.
    myFunc( ... ).now();
    ```
 
+
+## Reference
+
+ - usage: 
+   - constructor
+     - deb = debounce(f, delay)
+     - deb = debounce(delay, f) 
+     - debounce(delay).then ...
+   - methods
+     - deb.clear - clear all pending calls.
+     - deb() - call `f` ( pending for delay milliseconds ).
+     - deb().cancel - cancel pending call.
+     - deb().now - call `f` immediately, discard previous call.
+     - deb().then - like promise pattern, execute function in then after `f` finished.
+
+
 ## Compatibility
 
  * debounce.js uses Promise, which is not supported in some browsers like IE. Remember to install polyfill before using debounce.js.
