@@ -68,6 +68,11 @@ Debounce.js helps you to debounce your function.
    myFunc( ... ).now();
    ```
 
+ * overwrite previous set delay value:
+   ```
+   myFunc.delay(300)();
+   ```
+
 
 ## Reference
 
