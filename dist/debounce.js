@@ -26,9 +26,11 @@ var slice$ = [].slice;
       ], f = ref$[0], o = ref$[1];
     l = {};
     ret = function(){
-      var args, used, p, this$ = this;
+      var args, used, delay, p, this$ = this;
       args = slice$.call(arguments);
       used = false;
+      delay = ret.delay.value || o.delay || 750;
+      ret.delay.value = 0;
       p = new Promise(function(res, rej){
         if (used) {
           return;
@@ -51,7 +53,7 @@ var slice$ = [].slice;
             res(ret);
           }
           return l.res = null, l.rej = null, l.h = 0, l;
-        }, o.delay || 750);
+        }, delay);
       });
       p.now = function(){
         used = true;
@@ -69,6 +71,10 @@ var slice$ = [].slice;
         l.res(null);
       }
       return l.h = 0, l.res = null, l.rej = null, l;
+    };
+    ret.delay = function(it){
+      ret.delay.value = it;
+      return ret;
     };
     return ret;
   };

@@ -7,6 +7,8 @@
     l = {}
     ret = (...args) ->
       used = false
+      delay = ret.delay.value or o.delay or 750
+      ret.delay.value = 0
       p = new Promise (res, rej) ~>
         if used => return
         if l.h => ret.clear!
@@ -15,7 +17,7 @@
           ret = f.apply @, args
           if ret and typeof(ret.then) == \function => ret.then((...args) -> res.apply null, args) else res ret
           l <<< {res: null, rej: null, h: 0}
-        ), (o.delay or 750)
+        ), delay
       p.now = ~> used := true; ret.clear!; return f.apply @, args
       p.cancel = ~> ret.clear!
       p
@@ -23,6 +25,8 @@
       clearTimeout l.h
       if l.res => l.res null
       l <<< h: 0, res: null, rej: null
+    ret.delay = -> ret.delay.value = it; ret
+
     ret
 
   if module? => module.exports = debounce
