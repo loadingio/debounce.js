@@ -1,6 +1,6 @@
 {
   "author": "zbryikt",
-  "name": "debounce.js",
+  "name": "@loadingio/debounce.js",
   "main": "dist/debounce.js",
   "license": "MIT",
   "description": "Debouncing Function",
