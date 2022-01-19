@@ -5,7 +5,7 @@
   "main": "dist/index.min.js",
   "license": "MIT",
   "description": "Debouncing Function",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/loadingio/debounce.js",
   "repository": {
     "type": "git",
