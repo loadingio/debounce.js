@@ -1,7 +1,8 @@
 {
   "author": "zbryikt",
   "name": "@loadingio/debounce.js",
-  "main": "dist/debounce.js",
+  "browser": "dist/index.min.js",
+  "main": "dist/index.min.js",
   "license": "MIT",
   "description": "Debouncing Function",
   "version": "0.0.1",
